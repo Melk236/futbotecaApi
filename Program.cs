@@ -116,6 +116,15 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate(); // Aplica migraciones automáticamente
+    try
+    {
+        db.Database.Migrate();
+        Console.WriteLine("Migraciones aplicadas correctamente.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error al aplicar migraciones: " + ex.Message);
+    }
 }
+
 app.Run();
