@@ -1,0 +1,6 @@
+@FutbotecaApi_HostAddress = http://localhost:5078
+
+GET {{FutbotecaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
