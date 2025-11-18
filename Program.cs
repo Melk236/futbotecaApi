@@ -116,15 +116,18 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
     try
     {
         db.Database.Migrate();
-        Console.WriteLine("Migraciones aplicadas correctamente.");
+        logger.LogInformation("Migraciones aplicadas correctamente.");
     }
     catch (Exception ex)
     {
-        Console.WriteLine("Error al aplicar migraciones: " + ex.Message);
+        logger.LogError(ex, "Error al aplicar migraciones");
     }
 }
+
 
 app.Run();
