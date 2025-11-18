@@ -71,13 +71,23 @@ builder.Services.AddAuthentication(options =>
 
 // 4) Servicios adicionales
 builder.Services.AddScoped<JwtService>();
+// Construir connection string usando variables de entorno de Railway
+var server = Environment.GetEnvironmentVariable("MYSQLHOST");
+var database = Environment.GetEnvironmentVariable("MYSQL_DATABASE");
+var user = Environment.GetEnvironmentVariable("MYSQLUSER");
+var password = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
+var port = Environment.GetEnvironmentVariable("MYSQLPORT");
+
+
+
+// Construir el connection string con las variables
+var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};SslMode=Preferred;";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
+        connectionString,
         new MySqlServerVersion(new Version(8, 0, 29))
     ));
-
 // 5) Configura la serialización JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
