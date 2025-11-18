@@ -1,0 +1,588 @@
+[
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ComentariosController",
+    "Method": "GetComentarios",
+    "RelativePath": "api/Comentarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ComentariosController",
+    "Method": "CreateComentario",
+    "RelativePath": "api/Comentarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comentarioDto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateComentarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FutbotecaApi.Dtos.ComentarioDto_",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ComentariosController",
+    "Method": "GetComentario",
+    "RelativePath": "api/Comentarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ComentariosController",
+    "Method": "UpdateComentario",
+    "RelativePath": "api/Comentarios/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "comentarioDto",
+        "Type": "FutbotecaApi.Dtos.Update.UpdateComentarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ComentariosController",
+    "Method": "DeleteComentario",
+    "RelativePath": "api/Comentarios/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.LikesController",
+    "Method": "GetLikes",
+    "RelativePath": "api/Likes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.LikesController",
+    "Method": "CreateLike",
+    "RelativePath": "api/Likes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "likeDto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateLikeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FutbotecaApi.Dtos.LikeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.LikesController",
+    "Method": "GetLike",
+    "RelativePath": "api/Likes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.LikesController",
+    "Method": "UpdateLike",
+    "RelativePath": "api/Likes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "likeDto",
+        "Type": "FutbotecaApi.Dtos.Update.UpdateLikeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.LikesController",
+    "Method": "DeleteLike",
+    "RelativePath": "api/Likes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.NotificacionesController",
+    "Method": "Get",
+    "RelativePath": "api/Notificaciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.NotificacionesController",
+    "Method": "Crear",
+    "RelativePath": "api/Notificaciones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateNotificacionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.NotificacionesController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Notificaciones/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateNotificacionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.NotificacionesController",
+    "Method": "BorrarVideo",
+    "RelativePath": "api/Notificaciones/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ReportesController",
+    "Method": "get",
+    "RelativePath": "api/Reportes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ReportesController",
+    "Method": "Crear",
+    "RelativePath": "api/Reportes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateReporteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.ReportesController",
+    "Method": "Eliminar",
+    "RelativePath": "api/Reportes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.SeguimientosController",
+    "Method": "GetSeguimientos",
+    "RelativePath": "api/Seguimientos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.SeguimientosController",
+    "Method": "CreateSeguimiento",
+    "RelativePath": "api/Seguimientos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "seguimientoDto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateSeguimientoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FutbotecaApi.Dtos.SeguimientoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.SeguimientosController",
+    "Method": "GetSeguimiento",
+    "RelativePath": "api/Seguimientos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.SeguimientosController",
+    "Method": "UpdateSeguimiento",
+    "RelativePath": "api/Seguimientos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "seguimientoDto",
+        "Type": "FutbotecaApi.Dtos.Update.UpdateSeguimientoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.SeguimientosController",
+    "Method": "DeleteSeguimiento",
+    "RelativePath": "api/Seguimientos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "get",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NombreUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Avatar",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "ActualizarUsuarioAdmin",
+    "RelativePath": "api/Usuarios/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "NombreUsuario",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Avatar",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "eliminar",
+    "RelativePath": "api/Usuarios/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "Login",
+    "RelativePath": "api/Usuarios/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FutbotecaApi.Dtos.UsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "getPerfil",
+    "RelativePath": "api/Usuarios/perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.UsuariosController",
+    "Method": "Register",
+    "RelativePath": "api/Usuarios/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.VideosController",
+    "Method": "GetVideos",
+    "RelativePath": "api/Videos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.VideosController",
+    "Method": "CreateVideo",
+    "RelativePath": "api/Videos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "videoDto",
+        "Type": "FutbotecaApi.Dtos.Create.CreateVideoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FutbotecaApi.Dtos.VideoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.VideosController",
+    "Method": "GetVideo",
+    "RelativePath": "api/Videos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.VideosController",
+    "Method": "UpdateVideo",
+    "RelativePath": "api/Videos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "videoDto",
+        "Type": "FutbotecaApi.Dtos.Update.UpdateVideoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbotecaApi.Controllers.VideosController",
+    "Method": "BorrarVideo",
+    "RelativePath": "api/Videos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

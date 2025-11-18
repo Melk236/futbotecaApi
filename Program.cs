@@ -71,11 +71,10 @@ builder.Services.AddAuthentication(options =>
 
 // 4) Servicios adicionales
 builder.Services.AddScoped<JwtService>();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 29))
-    ));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+);
 
 // 5) Configura la serialización JSON
 builder.Services.AddControllers()
@@ -114,4 +113,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // Aplica migraciones automáticamente
+}
 app.Run();
