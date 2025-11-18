@@ -71,7 +71,14 @@ builder.Services.AddAuthentication(options =>
 
 // 4) Servicios adicionales
 builder.Services.AddScoped<JwtService>();
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Construir connection string usando variables de entorno de Railway
+var server = Environment.GetEnvironmentVariable("MYSQLHOST");
+var database = Environment.GetEnvironmentVariable("MYSQLDATABASE");
+var user = Environment.GetEnvironmentVariable("MYSQLUSER");
+var password = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
+var port = Environment.GetEnvironmentVariable("MYSQLPORT");
+
+var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};SslMode=Preferred;"; ;
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
 );
