@@ -78,7 +78,8 @@ var user = Environment.GetEnvironmentVariable("MYSQLUSER");
 var password = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
 var port = Environment.GetEnvironmentVariable("MYSQLPORT");
 
-var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};SslMode=Preferred;"; ;
+var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};SslMode=Required;TrustServerCertificate=True;";
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
 );
