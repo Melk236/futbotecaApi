@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FutbotecaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac905be714f90ba61119fc79b7dfe07a9c2509cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+835410faeb8a44fbfdf372f4d24f31cc70421b1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FutbotecaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FutbotecaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

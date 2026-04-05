@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FutbotecaApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250605192051_CompletarEstructura")]
-    partial class CompletarEstructura
+    [Migration("20260405204638_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

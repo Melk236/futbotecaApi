@@ -7,89 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FutbotecaApi.Migrations
 {
     /// <inheritdoc />
-    public partial class CompletarEstructura : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            
-            migrationBuilder.DropForeignKey(
-                name: "FK_likes_Usuarios_UsuarioId",
-                table: "likes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_likes_Videos_VideoId",
-                table: "likes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_seguimientos_Usuarios_SeguidoId",
-                table: "seguimientos");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_seguimientos_Usuarios_SeguidorId",
-                table: "seguimientos");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_seguimientos",
-                table: "seguimientos");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_likes",
-                table: "likes");
-
-            migrationBuilder.DropIndex(
-                name: "IX_likes_UsuarioId",
-                table: "likes");
-
-            migrationBuilder.RenameTable(
-                name: "seguimientos",
-                newName: "Seguimientos");
-
-            migrationBuilder.RenameTable(
-                name: "likes",
-                newName: "Likes");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_seguimientos_SeguidorId_SeguidoId",
-                table: "Seguimientos",
-                newName: "IX_Seguimientos_SeguidorId_SeguidoId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_seguimientos_SeguidoId",
-                table: "Seguimientos",
-                newName: "IX_Seguimientos_SeguidoId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_likes_VideoId",
-                table: "Likes",
-                newName: "IX_Likes_VideoId");
-            
-
-            migrationBuilder.AddColumn<string>(
-                name: "Categoria",
-                table: "Videos",
-                type: "longtext",
-                nullable: false)
+            migrationBuilder.AlterDatabase()
                 .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AddColumn<string>(
-                name: "Descripcion",
-                table: "Usuarios",
-                type: "longtext",
-                nullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-          
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Seguimientos",
-                table: "Seguimientos",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Likes",
-                table: "Likes",
-                column: "Id");
-            
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
@@ -149,75 +73,24 @@ namespace FutbotecaApi.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Notificaciones",
+                name: "Usuarios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Tipo = table.Column<string>(type: "longtext", nullable: false)
+                    NombreUsuario = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Leida = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    UsuarioRecibeId = table.Column<int>(type: "int", nullable: false),
-                    UsuarioEnviaId = table.Column<int>(type: "int", nullable: false),
-                    VideoId = table.Column<int>(type: "int", nullable: true),
-                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    Contraseña = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Avatar = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Notificaciones", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Notificaciones_Usuarios_UsuarioEnviaId",
-                        column: x => x.UsuarioEnviaId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Notificaciones_Usuarios_UsuarioRecibeId",
-                        column: x => x.UsuarioRecibeId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Notificaciones_Videos_VideoId",
-                        column: x => x.VideoId,
-                        principalTable: "Videos",
-                        principalColumn: "Id");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Reportes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Motivo = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    UsuarioReportadoId = table.Column<int>(type: "int", nullable: false),
-                    UsuarioReportaId = table.Column<int>(type: "int", nullable: false),
-                    ComentarioId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reportes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Reportes_Comentarios_ComentarioId",
-                        column: x => x.ComentarioId,
-                        principalTable: "Comentarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Reportes_Usuarios_UsuarioReportaId",
-                        column: x => x.UsuarioReportaId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Reportes_Usuarios_UsuarioReportadoId",
-                        column: x => x.UsuarioReportadoId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -348,13 +221,193 @@ namespace FutbotecaApi.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-           
-            migrationBuilder.CreateIndex(
-                name: "IX_Likes_UsuarioId_VideoId",
-                table: "Likes",
-                columns: new[] { "UsuarioId", "VideoId" },
-                unique: true);
-            
+            migrationBuilder.CreateTable(
+                name: "Seguimientos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    SeguidorId = table.Column<int>(type: "int", nullable: false),
+                    SeguidoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Seguimientos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Seguimientos_Usuarios_SeguidoId",
+                        column: x => x.SeguidoId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Seguimientos_Usuarios_SeguidorId",
+                        column: x => x.SeguidorId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Videos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Titulo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Url = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Vistas = table.Column<int>(type: "int", nullable: false),
+                    FechaSubida = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Categoria = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Videos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Videos_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Comentarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Contenido = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Fecha = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    VideoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comentarios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comentarios_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Comentarios_Videos_VideoId",
+                        column: x => x.VideoId,
+                        principalTable: "Videos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Likes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Fecha = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    VideoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Likes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Likes_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Likes_Videos_VideoId",
+                        column: x => x.VideoId,
+                        principalTable: "Videos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Notificaciones",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Tipo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Leida = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    UsuarioRecibeId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioEnviaId = table.Column<int>(type: "int", nullable: false),
+                    VideoId = table.Column<int>(type: "int", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notificaciones", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notificaciones_Usuarios_UsuarioEnviaId",
+                        column: x => x.UsuarioEnviaId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Notificaciones_Usuarios_UsuarioRecibeId",
+                        column: x => x.UsuarioRecibeId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Notificaciones_Videos_VideoId",
+                        column: x => x.VideoId,
+                        principalTable: "Videos",
+                        principalColumn: "Id");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Reportes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Motivo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    UsuarioReportadoId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioReportaId = table.Column<int>(type: "int", nullable: false),
+                    ComentarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reportes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reportes_Comentarios_ComentarioId",
+                        column: x => x.ComentarioId,
+                        principalTable: "Comentarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reportes_Usuarios_UsuarioReportaId",
+                        column: x => x.UsuarioReportaId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reportes_Usuarios_UsuarioReportadoId",
+                        column: x => x.UsuarioReportadoId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -394,6 +447,27 @@ namespace FutbotecaApi.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comentarios_UsuarioId",
+                table: "Comentarios",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comentarios_VideoId",
+                table: "Comentarios",
+                column: "VideoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Likes_UsuarioId_VideoId",
+                table: "Likes",
+                columns: new[] { "UsuarioId", "VideoId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Likes_VideoId",
+                table: "Likes",
+                column: "VideoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Notificaciones_UsuarioEnviaId",
                 table: "Notificaciones",
                 column: "UsuarioEnviaId");
@@ -423,62 +497,26 @@ namespace FutbotecaApi.Migrations
                 table: "Reportes",
                 column: "UsuarioReportaId");
 
-            
-            migrationBuilder.AddForeignKey(
-                name: "FK_Likes_Usuarios_UsuarioId",
-                table: "Likes",
-                column: "UsuarioId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Likes_Videos_VideoId",
-                table: "Likes",
-                column: "VideoId",
-                principalTable: "Videos",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Seguimientos_Usuarios_SeguidoId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Seguimientos_SeguidoId",
                 table: "Seguimientos",
-                column: "SeguidoId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                column: "SeguidoId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Seguimientos_Usuarios_SeguidorId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Seguimientos_SeguidorId_SeguidoId",
                 table: "Seguimientos",
-                column: "SeguidorId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-            
+                columns: new[] { "SeguidorId", "SeguidoId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Videos_UsuarioId",
+                table: "Videos",
+                column: "UsuarioId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            
-            migrationBuilder.DropForeignKey(
-                name: "FK_Likes_Usuarios_UsuarioId",
-                table: "Likes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Likes_Videos_VideoId",
-                table: "Likes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Seguimientos_Usuarios_SeguidoId",
-                table: "Seguimientos");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Seguimientos_Usuarios_SeguidorId",
-                table: "Seguimientos");
-            
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -495,10 +533,16 @@ namespace FutbotecaApi.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Likes");
+
+            migrationBuilder.DropTable(
                 name: "Notificaciones");
 
             migrationBuilder.DropTable(
                 name: "Reportes");
+
+            migrationBuilder.DropTable(
+                name: "Seguimientos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -506,101 +550,14 @@ namespace FutbotecaApi.Migrations
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            
-            
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Seguimientos",
-                table: "Seguimientos");
+            migrationBuilder.DropTable(
+                name: "Comentarios");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Likes",
-                table: "Likes");
+            migrationBuilder.DropTable(
+                name: "Videos");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Likes_UsuarioId_VideoId",
-                table: "Likes");
-            
-
-            migrationBuilder.DropColumn(
-                name: "Categoria",
-                table: "Videos");
-
-            migrationBuilder.DropColumn(
-                name: "Descripcion",
-                table: "Usuarios");
-
-            
-           
-            migrationBuilder.RenameTable(
-                name: "Seguimientos",
-                newName: "seguimientos");
-
-            migrationBuilder.RenameTable(
-                name: "Likes",
-                newName: "likes");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Seguimientos_SeguidorId_SeguidoId",
-                table: "seguimientos",
-                newName: "IX_seguimientos_SeguidorId_SeguidoId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Seguimientos_SeguidoId",
-                table: "seguimientos",
-                newName: "IX_seguimientos_SeguidoId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Likes_VideoId",
-                table: "likes",
-                newName: "IX_likes_VideoId");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_seguimientos",
-                table: "seguimientos",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_likes",
-                table: "likes",
-                column: "Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_likes_UsuarioId",
-                table: "likes",
-                column: "UsuarioId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_likes_Usuarios_UsuarioId",
-                table: "likes",
-                column: "UsuarioId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_likes_Videos_VideoId",
-                table: "likes",
-                column: "VideoId",
-                principalTable: "Videos",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_seguimientos_Usuarios_SeguidoId",
-                table: "seguimientos",
-                column: "SeguidoId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_seguimientos_Usuarios_SeguidorId",
-                table: "seguimientos",
-                column: "SeguidorId",
-                principalTable: "Usuarios",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-            
+            migrationBuilder.DropTable(
+                name: "Usuarios");
         }
     }
 }

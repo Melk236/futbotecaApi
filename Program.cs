@@ -81,7 +81,7 @@ var port = Environment.GetEnvironmentVariable("MYSQLPORT");
 
 
 // Construir el connection string con las variables
-var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};SslMode=Preferred;";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(

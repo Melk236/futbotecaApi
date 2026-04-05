@@ -1,6 +1,6 @@
 ﻿using FutbotecaApi.Context;
 using FutbotecaApi.Dtos.Create;
-using FutbotecaApi.Migrations;
+
 using FutbotecaApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

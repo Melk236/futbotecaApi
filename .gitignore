@@ -1,0 +1,61 @@
+# Build results
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Publish profiles (contienen contraseñas y datos sensibles)
+**/Properties/PublishProfiles/
+
+# appsettings con datos sensibles
+appsettings.Development.json
+appsettings.Production.json
+appsettings.json
+
+# NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+packages/
+
+# Logs
+*.log
+logs/
+
+# Entity Framework
+# (no ignorar la carpeta Migrations, es necesaria)
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Archivos temporales
+*.tmp
+*.temp
+~$*
+
+# Certificados y claves
+*.pfx
+*.key
+*.pem
+
+# Variables de entorno
+.env
+.env.*

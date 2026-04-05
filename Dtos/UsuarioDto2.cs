@@ -1,4 +1,4 @@
-﻿using FutbotecaApi.Migrations;
+﻿
 
 namespace FutbotecaApi.Dtos
 {
